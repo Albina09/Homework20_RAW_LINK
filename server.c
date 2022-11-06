@@ -22,7 +22,7 @@ int main(){
 
     fd = socket(AF_INET, SOCK_DGRAM, 0);
     if(fd == -1)
-        errorExit("soket")
+        errorExit("soket");
         
 
     serv.sin_family = AF_INET;
