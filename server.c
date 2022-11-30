@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include <linux/udp.h>
 #include <linux/ip.h>
+#include <arpa/inet.h>
 void errorExit(char err[]);
 
 void errorExit(char err[]){
@@ -27,7 +28,7 @@ int main(){
 
     serv.sin_family = AF_INET;
     serv.sin_port = htons(9007);
-    serv.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    serv.sin_addr.s_addr = inet_addr("192.168.1.2");;
 
     if (bind(fd, (struct sockaddr *)&serv, sizeof(serv)) == -1) 
         errorExit("bind");
